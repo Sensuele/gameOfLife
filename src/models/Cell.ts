@@ -27,6 +27,7 @@ export class Cell {
         }
 
         const min = Math.min(this.y, target.y);
+        const max = Matn.max(this.y, target.y)
     }
 
     isEmptyHorizontal(target: Cell): boolean {
