@@ -1,3 +1,3 @@
-# gameOfLife
+# Chess
 
 This is Chess
