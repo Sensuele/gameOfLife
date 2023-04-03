@@ -21,11 +21,19 @@ export class Cell {
         this.id = Math.random();
     }
 
-    isEmptyVertical(target: Cell) {
+    isEmptyVertical(target: Cell): boolean {
+        if (this.x !== target.x) {
+            return false;
+        }
+
+        const min = Math.min(this.y, target.y);
+    }
+
+    isEmptyHorizontal(target: Cell): boolean {
 
     }
 
-    isEmptyHorizontal(target: Cell) {
+    isEmptyDiagonal(target: Cell): boolean {
         
     }
 
