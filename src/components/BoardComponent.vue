@@ -41,7 +41,6 @@ const clickOnCell = (cell: Cell) => {
         return;
     }
 }
-
 const highlightCells = () => {
     props.board.highlightCells(selectedCell.value);
 }
