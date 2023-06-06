@@ -35,11 +35,11 @@ const emit = defineEmits<Emits>();
     }
   }
 .black {
-background: deepskyblue;
+background: #B58863;
 }
 
 .white {
-background: #eed4ac;
+background: #F0D9B5;
 }
 
 .selected {
@@ -47,10 +47,10 @@ background: #eed4ac;
 }
 
 .available {
-    width: 12px;
-    height: 12px;
+    width: 16px;
+    height: 16px;
     border-radius: 50%;
-    background: #22c022;
+    background: #0c530c;
 }
 
 .available-attack {

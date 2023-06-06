@@ -7,6 +7,7 @@ import { Pawn } from "./figures/Pawn";
 import { Queen } from "./figures/Queen";
 import { Rook } from "./figures/Rook";
 
+
 export class Board {
     cells: Cell[][] = []
 
