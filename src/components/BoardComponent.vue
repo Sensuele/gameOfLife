@@ -23,7 +23,7 @@ import CellComponent from './CellComponent.vue';
 import { Cell } from '@/models/Cell';
 import { Player } from '@/models/Player';
 interface Props {
-    board: Board;
+    board?: Board;
     currentPlayer: Player | null;
     swapPlayer: () => void;
 }

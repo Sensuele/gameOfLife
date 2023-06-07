@@ -1,6 +1,8 @@
 <template>
   <div class="app">
+    <lost-figures :title="'Black:'" :figures="board?.lostBlackFigures" />
     <board-component :board="board" :current-player="currentPlayer" :swap-player="swapPlayer" />
+    <lost-figures :title="'White:'" :figures="board?.lostWhiteFigures" />
   </div>  
 
 </template>
@@ -9,10 +11,11 @@
 import { ref, onMounted } from 'vue';
 import { Board } from '@/models/Board';
 import BoardComponent from './components/BoardComponent.vue';
+import LostFigures from './components/LostFigures.vue';
 import { Player } from './models/Player';
 import { Colors } from './models/Colors';
 
-const board = ref();
+const board = ref<Board>();
 const whitePlayer = ref<Player>(new Player(Colors.WHITE));
 const blackPlayer = ref<Player>(new Player(Colors.BLACK));
 const currentPlayer = ref<Player | null>(null);
