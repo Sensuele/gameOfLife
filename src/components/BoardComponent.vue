@@ -18,7 +18,7 @@
 
 <script setup lang="ts">
 import { Board } from '@/models/Board';
-import { defineProps, defineEmits, ref, watch } from 'vue';
+import { defineProps, ref, watch } from 'vue';
 import CellComponent from './CellComponent.vue';
 import { Cell } from '@/models/Cell';
 import { Player } from '@/models/Player';
@@ -27,12 +27,8 @@ interface Props {
     currentPlayer: Player | null;
     swapPlayer: () => void;
 }
-interface Emits {
-  (e: 'update-board', board: Board): void;
-}
 
 const props = defineProps<Props>();
-const emit = defineEmits<Emits>();
 
 const selectedCell = ref<Cell | null>(null);
 
@@ -41,8 +37,6 @@ const clickOnCell = (cell: Cell) => {
         selectedCell.value.moveFigure(cell);
         selectedCell.value = null;
         props.swapPlayer();
-        // updateBoard();
-        console.log(props.board)
     } else {
         if (cell.figure?.color === props.currentPlayer?.color) {
             selectedCell.value = cell;
@@ -55,13 +49,8 @@ const clickOnCell = (cell: Cell) => {
     }
 }
 const highlightCells = () => {
-    props.board.highlightCells(selectedCell.value as Cell);
+    props.board?.highlightCells(selectedCell.value as Cell);
 }
-
-// const updateBoard = () => {
-//     console.log(props.board)
-//     emit('update-board', props.board.getCopyBoard())
-// }
 
 watch(selectedCell, () => {
     highlightCells();
