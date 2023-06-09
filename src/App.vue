@@ -1,5 +1,6 @@
 <template>
   <div class="app">
+    <timer-component :current-player="currentPlayer" @restart="restart" />
     <lost-figures :title="'Black:'" :figures="board?.lostBlackFigures" />
     <board-component :board="board" :current-player="currentPlayer" :swap-player="swapPlayer" />
     <lost-figures :title="'White:'" :figures="board?.lostWhiteFigures" />
@@ -12,6 +13,7 @@ import { ref, onMounted } from 'vue';
 import { Board } from '@/models/Board';
 import BoardComponent from './components/BoardComponent.vue';
 import LostFigures from './components/LostFigures.vue';
+import TimerComponent from './components/TimerComponent.vue';
 import { Player } from './models/Player';
 import { Colors } from './models/Colors';
 
@@ -25,6 +27,7 @@ function restart() {
   newBoard.initCells();
   newBoard.addFigures();
   board.value = newBoard;
+  currentPlayer.value = whitePlayer.value
 }
 
 function swapPlayer() {
