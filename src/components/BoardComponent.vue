@@ -1,16 +1,25 @@
 <template>
     <div>
         <h2>Curent player: {{ currentPlayer?.color }}</h2>
-        <div class="board">
-            <template v-for="(row) in board?.cells">
-                <template v-for="(cell, index) in row" :key="index">
-                    <cell-component 
-                        :cell="cell" 
-                        :selected="selectedCell?.x === cell.x && selectedCell?.y === cell.y " 
-                        @click-on-cell="clickOnCell"
-                        />
+        <div class="board-wrap">
+            <div class="board">
+                <template v-for="(row) in board?.cells">
+                    <template v-for="(cell, index) in row" :key="index">
+                        <cell-component 
+                            :cell="cell" 
+                            :selected="selectedCell?.x === cell.x && selectedCell?.y === cell.y " 
+                            @click-on-cell="clickOnCell"
+                            />
+                    </template>
                 </template>
-            </template>
+                
+            </div>
+            <div class="board-nums" >
+                <span class="board__num" v-for="num in [1,2,3,4,5,6,7,8]" :key="num">{{ num }}</span>
+            </div>
+        </div>
+        <div class="board-letters" >
+            <span class="board__letter" v-for="letter in ['A','B','C','D','E','F','G','H']" :key="letter">{{ letter }}</span>
         </div>
     </div>
 
@@ -63,5 +72,31 @@ watch(selectedCell, () => {
     height: calc(70px * 8);
     display: flex;
     flex-wrap: wrap;
+
+    &-wrap {
+        display: flex;
+    }
+
+    &-nums {
+        display: flex;
+        justify-content: center;
+        flex-direction: column-reverse;
+    }
+
+    &__num {
+        height: 70px;
+        display: flex;
+        align-items: center;
+    }
+
+    &-letters {
+        display: flex;
+    }
+
+    &__letter {
+        width: 70px;
+        display: flex;
+        justify-content: center;
+    }
   }
 </style>

@@ -39,7 +39,7 @@ export class Pawn extends Figure {
 
 
     moveFigure(target: Cell): void {
-        super.moveFigure(target);
+        super.canMove(target);
         this.isFirstStep = false;
     }
 }
